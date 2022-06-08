@@ -1,0 +1,39 @@
+﻿@model MVCSTOK.Models.Entitiy.satıslar
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_MainLayout.cshtml";
+}
+
+
+<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#Modal1">satış yap</button>
+<div class="modal" id="Modal1">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 class="modal-title">Satış Yapma Ekranı</h2>
+            </div>
+            <form method="post" action="/Satis/YeniSatis/">
+                <div class="modal-body">
+                    <label>ÜRÜN ADI</label>
+                    @Html.TextBoxFor(m => m.urun_id, new { @class = "form-control" })
+                    <br />
+                    <label>MÜŞTERİ ADI SOYADI</label>
+                    @Html.TextBoxFor(m => m.musteri_id, new { @class = "form-control" })
+                    <br />
+                    <label>ÜRÜN ADEDİ</label>
+                    @Html.TextBoxFor(m => m.adet, new { @class = "form-control" })
+                    <br />
+                    <label>FİYAT</label>
+                    @Html.TextBoxFor(m => m.fiyat, new { @class = "form-control" })
+                    <br />
+                    <button type="submit" class="btn btn-info">Verileri Kaydet</button>
+                    <button type="button" class="btn btn-danger" data-dismiss="modal">Vazgeç</button>
+                </div>
+
+
+            </form>
+
+        </div>
+
+    </div>
+</div>

@@ -1,0 +1,33 @@
+﻿@model MVCSTOK.Models.Entitiy.urunler
+@{
+    ViewBag.Title = "UrunGetir";
+    Layout = "~/Views/Shared/_MainLayout.cshtml";
+}
+
+<h2>Urun Getir Sayfası</h2>
+@using (Html.BeginForm("Guncelle", "Urun", FormMethod.Post))
+{
+    <div class="form-group">
+        @Html.LabelFor(m => m.urun_id)
+        @Html.TextBoxFor(m => m.urun_id, new { @class = "form-control" })
+        <br />
+        @Html.LabelFor(m => m.urun_adi)
+        @Html.TextBoxFor(m => m.urun_adi, new { @class = "form-control" })
+        <br />
+        @Html.LabelFor(m => m.kategori_id)
+        @Html.DropDownListFor(m=>m.kategoriler.kategori_id,(List<SelectListItem>)ViewBag.deger, new { @class = "form-control" })
+        <br />
+        @Html.LabelFor(m => m.fiyat)
+        @Html.TextBoxFor(m => m.fiyat, new { @class = "form-control" })
+        <br />
+        @Html.LabelFor(m => m.marka)
+        @Html.TextBoxFor(m => m.marka, new { @class = "form-control" })
+        <br />
+        @Html.LabelFor(m=>m.stok)
+        @Html.TextBoxFor(m => m.stok, new {@class="form-control"})
+    </div>
+    <div>
+        <button class="btn btn-warning">Ürün Güncelle</button>
+    </div>
+}
+
